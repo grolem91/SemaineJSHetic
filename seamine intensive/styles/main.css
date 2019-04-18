@@ -325,9 +325,15 @@ a {
 }
 
 .canvas_container {
-  display: flex;
-  justify-content: center;
+  height: 601px;
+  width: 801px;
+  margin: auto;
+  border: 1px solid green;
   margin-top: -600px;
+}
+
+canvas{
+    border: 1px solid red;
 }
 
 .audio_remote {
