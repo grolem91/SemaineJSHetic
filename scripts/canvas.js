@@ -73,10 +73,10 @@ function direction(){
       console.log(x);
       //limit
       if (x >= 500){
-        x = x - 20;
+        x = x - 30;
       }
       if (x <= 0){
-        x = x + 20;
+        x = x + 30;
       }
     }
   )
