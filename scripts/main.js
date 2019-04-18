@@ -1,7 +1,7 @@
 let $hero_video = document.querySelector('.container')
 
 window.addEventListener('scroll', function (e) {
-    console.log(window.scrollY)
+    //console.log(window.scrollY)
     if (window.scrollY > 60) {
         $hero_video.classList.add('wide')
     } else {

@@ -4,15 +4,18 @@ let dmc12 = new Image()
 dmc12.src = "./images/low-center.png"
 let background_canvas = new Image()
 background_canvas.src = "./images/background_canvas.png"
+let vitesse = 700
+let x = 304 //position dmc12
 
 // nécessaire pour afficher à l'intérieur du canvas
 // needed to render inside the canvas
 window.onload = function(){init()};
-
+speed();
+direction();
 // sprite de la DeLorean DMC-12
 // sprite of the DeLorean DMC-12
 function dmc(){
-  ctx.drawImage(dmc12, 304, 440);
+  ctx.drawImage(dmc12, x, 440);
 }
 
 // backgroud
@@ -22,54 +25,96 @@ function background(){
 
 // debouce, pour pouvoir régler la fréquence de rafraîchissement
 // debouce, to be able to regulate the refresh rate
-function debounce(func, wait, immediate) {
+function debounce(func, wait, immediate){
   let timeout;
-  return function () {
+  return function(){
     let context = this,
       args = arguments;
-    let later = function () {
+    let later = function (){
       timeout = null;
       if (!immediate) func.apply(context, args);
     };
     let callNow = immediate && !timeout;
     clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
+    timeout = setTimeout(later, vitesse);
     if (callNow) func.apply(context, args);
   };
 };
 
+function speed(){
+  const input = document.getElementById("canvas");
+  document.addEventListener(
+    'keydown',
+    (e)=>{
+      //console.log("key");
+      if (e.keyCode == 38){
+        vitesse = vitesse - 5;
+      }
+      //console.log(vitesse);
+      if (vitesse == 30) {    //speed limiter
+        vitesse = vitesse + 5;
+      }
+    }
+  )
+}
+
+function direction(){
+  const input = document.getElementById("canvas");
+  document.addEventListener(
+    'keydown',
+    (e)=>{
+      //console.log("key");
+      if (e.keyCode == 37){
+        x = x - 20;
+      }
+      if (e.keyCode == 39){
+        x = x + 20;
+      }
+      console.log(x);
+      //limit
+      if (x >= 500){
+        x = x - 20;
+      }
+      if (x <= 0){
+        x = x + 20;
+      }
+    }
+  )
+}
+
 // appelle toutes les fonctions nécessaires au lancement
 // call all the functions needed to launch the game
-function init() {
+function init(){
   let callBackFunctionName = "draw"
-  const drawAll = debounce(function () {
+  const drawAll = debounce(function(){
     // permet de permuter entre les frames
     // allow to switch beetween the frames
     switch (callBackFunctionName) {
       case "draw":
-        console.log("case 1")
+        //console.log("case 1")
         callBackFunctionName = draw(callBackFunctionName)
         break;
       case "draw2":
-        console.log("case 2")
+        //console.log("case 2")
         callBackFunctionName = draw2(callBackFunctionName)
         break;
       case "draw3":
-        console.log("case 3")
+        //console.log("case 3")
         callBackFunctionName = draw3(callBackFunctionName)
         break;
     }
+    //console.log(vitesse);
     dmc();
     background();
     requestAnimationFrame(drawAll);
-    console.log("test")
-  }, 75);
+    //console.log("test")
+  }, vitesse);
   requestAnimationFrame(drawAll);
 }
 
 // dessine la route
 // draw the road
-function draw(i) {
+function draw(i){
 
   ctx.fillStyle = 'rgb(28,30,96)'; // left side
   ctx.beginPath();
@@ -262,7 +307,7 @@ function draw(i) {
 
 // dessine la route
 // draw the road
-function draw2(i) {   // second frame
+function draw2(i){   // second frame
 
   ctx.fillStyle = 'rgb(28,30,96)'; // left side
   ctx.beginPath();
@@ -478,7 +523,7 @@ function draw2(i) {   // second frame
 
 // dessine la route
 // draw the road
-function draw3(i) {      // third frame
+function draw3(i){      // third frame
 
   ctx.fillStyle = 'rgb(28,30,96)'; // left side
   ctx.beginPath();
