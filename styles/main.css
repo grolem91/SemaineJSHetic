@@ -1,0 +1,342 @@
+* {
+  font-family: "Ropa Sans", sans-serif;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+/* NAV */
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+li:hover {
+  color: #f2c40c;
+}
+
+.container.wide {
+  width: 100vw;
+  margin-top: -27px;
+  position: fixed;
+  border-radius: 0px;
+  transition: ease;
+}
+
+.nav_logo {
+  margin-top: 35px;
+  width: 120px;
+}
+
+.container_flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  background: black;
+  height: 50px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+}
+
+.nav_title {
+  color: white
+}
+
+.nav_title:hover {
+  color: #f2c40c
+}
+
+.header nav {
+  z-index: 10000;
+}
+
+/* HERO */
+.hero {}
+
+.hero_video {
+  position: absolute;
+  width: 100vw;
+  height: 1oovh;
+  z-index: -1;
+  margin-top: -1353px;
+}
+
+.hero_video::after {
+  content: "";
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: #999;
+}
+
+.hero_image {
+  display: flex;
+  justify-content: center;
+}
+
+.hero_text {
+  color: white;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 960px;
+  margin: 0 auto;
+  font-size: 1.7rem;
+  text-shadow: 5px 5px 5px rgba(43, 19, 11, 0.5);
+}
+
+.container_video {
+  background-position: top;
+}
+
+/* BUTTON */
+.button {
+  border-radius: 4px;
+  background-color: #f2c40c;
+  border: none;
+  color: #f835a4;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  border: 2px solid #f835a4;
+}
+
+.button_image {
+  width: 130px;
+  margin-top: 5px
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.hero_button {
+  display: flex;
+  justify-content: center;
+}
+
+/* TRIPTYQUE */
+
+.triptyque {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 100px;
+}
+
+.slogan {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+}
+
+.triptyque_image:hover {
+  transform: scale(1.1);
+  transition: 0.4s ease-in-out;
+}
+
+.triptyque_legende {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2rem;
+}
+
+
+/* FOOTER */
+
+.footer {
+  background-color: black;
+}
+
+.niv1 {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 15%;
+}
+
+.titre {
+  font-size: 1.2rem;
+  margin-top: 3%;
+}
+
+.logo {
+  width: 60%;
+  margin-left: 26%;
+}
+
+.niv2 {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.age {
+  width: 25%;
+  margin-left: 65%;
+  margin-top: 4%;
+}
+
+.reseaux {
+  margin-top: 200px;
+}
+
+.menufooter {
+  display: block;
+  display: flex;
+  margin-left: 315px;
+  margin-top: -2%;
+}
+
+.ref {
+  font-size: 10px;
+  margin-left: 15%;
+  margin-top: -80px;
+}
+
+.line {
+  margin-top: 18%;
+  margin-left: -320%;
+
+}
+
+.line2 {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 2%;
+}
+
+.source {
+  font-size: 0.5rem;
+  margin-left: 19%;
+}
+
+
+/* SLIDER */
+
+
+.slider {
+  width: 100%;
+  height: 640px;
+  position: relative;
+  overflow: hidden;
+  margin-top:
+}
+
+.sliderContainer {
+  display: flex;
+  position: absolute;
+  transition: ease-in 0.5s all;
+  will-change: left;
+  z-index: 9;
+}
+
+.slider_pos {
+  position:
+    margin-top: 20px;
+}
+
+.left {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  color: white;
+  z-index: 10;
+}
+
+.right {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  color: white;
+  z-index: 10;
+}
+
+.roundButtons {
+  position: absolute;
+  top: 600px;
+  margin: 0 auto;
+  display: flex;
+  margin-left: 411px;
+  justify-content: center;
+  color: black;
+}
+
+.roundButtons div[class^="roundButtonContainer"] {
+  z-index: 11;
+  width: 15px;
+  height: 15px;
+  margin: 0px 3px;
+  border: 1px solid white;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .2);
+}
+
+.roundButtons:hover {
+  border-radius: 0px;
+}
+
+/* GAME */
+
+.background_game {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: -650px;
+  margin-right: 3px;
+  width: 100%;
+}
+
+.canvas_container {
+  height: 601px;
+  width: 801px;
+  margin: auto;
+  border: 1px solid green;
+  margin-top: -600px;
+}
+
+canvas{
+    border: 1px solid red;
+}
+
+.audio_remote {
+  display: flex;
+  justify-content: flex-end
+}
