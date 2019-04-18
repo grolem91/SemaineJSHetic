@@ -4,7 +4,7 @@ let dmc12 = new Image()
 dmc12.src = "./images/low-center.png"
 let background_canvas = new Image()
 background_canvas.src = "./images/background_canvas.png"
-let vitesse = 700
+let vitesse = 800
 let x = 250 //position dmc12
 
 // nécessaire pour afficher à l'intérieur du canvas
@@ -12,10 +12,11 @@ let x = 250 //position dmc12
 window.onload = function(){init()};
 speed();
 direction();
+antiScroll();
 // sprite de la DeLorean DMC-12
 // sprite of the DeLorean DMC-12
 function dmc(){
-  ctx.drawImage(dmc12, x, 400);
+  ctx.drawImage(dmc12, x, 390);
 }
 
 // backgroud
@@ -51,8 +52,14 @@ function speed(){
         vitesse = vitesse - 10;
       }
       console.log(vitesse);
-      if (vitesse <= 20) {    //speed limiter
+      if (vitesse <= 20){    //speed limiter
         vitesse = vitesse + 10;
+      }
+      if (e.keyCode == 40){
+        vitesse = vitesse + 10;
+      }
+      if (vitesse >= 800){
+        vitesse = vitesse = 10;
       }
     }
   )
@@ -72,14 +79,23 @@ function direction(){
       }
       console.log(x);
       //limit
-      if (x >= 500){
-        x = x - 20;
+      if (x >= 470){
+        x = x - 30;
       }
-      if (x <= 0){
-        x = x + 20;
+      if (x <= 30){
+        x = x + 30;
       }
     }
   )
+}
+
+function antiScroll(){
+  window.addEventListener("keydown", function(e) {
+      // space and arrow keys
+      if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+          e.preventDefault();
+      }
+  }, false);
 }
 
 // appelle toutes les fonctions nécessaires au lancement
