@@ -5,7 +5,23 @@ dmc12.src = "./images/low-center.png"
 let background_canvas = new Image()
 background_canvas.src = "./images/background_canvas.png"
 let vitesse = 800
-let x = 250 //position dmc12
+let x = 275 //position dmc12
+
+//traffic
+let t1 = new Image()
+t1.src = "./images/1.png"
+let t2 = new Image()
+t1.src = "./images/2.png"
+let t3 = new Image()
+t1.src = "./images/3.png"
+let t4 = new Image()
+t1.src = "./images/4.png"
+let t5 = new Image()
+t1.src = "./images/5.png"
+let t6 = new Image()
+t1.src = "./images/6.png"
+let t7 = new Image()
+t1.src = "./images/7.png"
 
 // nécessaire pour afficher à l'intérieur du canvas
 // needed to render inside the canvas
@@ -13,6 +29,8 @@ window.onload = function(){init()};
 speed();
 direction();
 antiScroll();
+traffic1a();
+
 // sprite de la DeLorean DMC-12
 // sprite of the DeLorean DMC-12
 function dmc(){
@@ -49,17 +67,17 @@ function speed(){
     (e)=>{
       //console.log("key");
       if (e.keyCode == 38){
-        vitesse = vitesse - 10;
+        vitesse = vitesse - 10; // accelerator
       }
       console.log(vitesse);
-      if (vitesse <= 20){    //speed limiter
+      if (vitesse <= 20){    // speed limiter
         vitesse = vitesse + 10;
       }
-      if (e.keyCode == 40){
+      if (e.keyCode == 40){   // brake
         vitesse = vitesse + 10;
       }
-      if (vitesse >= 800){
-        vitesse = vitesse = 10;
+      if (vitesse >= 800){   // low speed limiter
+        vitesse = vitesse - 10;
       }
     }
   )
@@ -78,11 +96,11 @@ function direction(){
         x = x + 30;
       }
       console.log(x);
-      //limit
+      //limit right and left
       if (x >= 470){
         x = x - 30;
       }
-      if (x <= 30){
+      if (x <= 70){
         x = x + 30;
       }
     }
@@ -126,6 +144,66 @@ function init(){
     //console.log("test")
   }, vitesse);
   requestAnimationFrame(drawAll);
+}
+
+// traffic left lane
+function traffic1a(){
+  ctx.drawImage(t1, 360, 305);
+  setTimeout(traffic2a(), 100);
+}
+function traffic2a(){
+  ctx.drawImage(t2, 330, 330);
+  setTimeout(traffic3a(), 100);
+}
+function traffic3a(){
+  ctx.drawImage(t3, 300, 340);
+  setTimeout(traffic4a(), 100);
+}
+function traffic4a(){
+  ctx.drawImage(t4, 270, 350);
+  setTimeout(traffic5a(), 100);
+}
+function traffic5a(){
+  ctx.drawImage(t5, 240, 360);
+  setTimeout(traffic6a(), 100);
+}
+function traffic6a(){
+  ctx.drawImage(t6, 210, 380);
+  setTimeout(traffic7a(), 100);
+}
+function traffic7a(){
+  ctx.drawImage(t7, 180, 400);
+  setTimeout(traffic1a(), 1000);
+}
+
+// traffic right lane
+function traffic1b(){
+  ctx.drawImage(t1, 440, 305);
+  setTimeout(traffic2b(), 100);
+}
+function traffic2b(){
+  ctx.drawImage(t2, 470, 330);
+  setTimeout(traffic3b(), 100);
+}
+function traffic3b(){
+  ctx.drawImage(t3, 500, 340);
+  setTimeout(traffic4b(), 100);
+}
+function traffic4b(){
+  ctx.drawImage(t4, 530, 350);
+  setTimeout(traffic5b(), 100);
+}
+function traffic5b(){
+  ctx.drawImage(t5, 560, 360);
+  setTimeout(traffic6b(), 100);
+}
+function traffic6b(){
+  ctx.drawImage(t6, 590, 380);
+  setTimeout(traffic7b(), 100);
+}
+function traffic7b(){
+  ctx.drawImage(t7, 620, 400);
+  setTimeout(traffic1b(), 1000);
 }
 
 // dessine la route

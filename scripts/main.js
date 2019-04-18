@@ -32,13 +32,13 @@ let action
 
 // FUNCTIONS
 
-// Mouvement slilder
+// Mouvement slider
 playSlider()
 
 // Round buttons
 // Le slider continu ou il était
 console.log(roundButton1)
-roundButton1.addEventListener('click', roundButton1)
+roundButton1.addEventListener('click', rndButton1)
 roundButton2.addEventListener('click', rndButton2)
 roundButton3.addEventListener('click', rndButton3)
 roundButton4.addEventListener('click', rndButton4)
