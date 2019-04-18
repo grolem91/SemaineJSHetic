@@ -1,124 +1,147 @@
-/* exo1
-let number1 = parseInt(window.prompt('renseigner un nombre'))
-if(number1<0)
-{
-  document.write('c est negatif')
+let $hero_video = document.querySelector('.container')
+
+window.addEventListener('scroll', function (e) {
+    console.log(window.scrollY)
+    if (window.scrollY > 60) {
+        $hero_video.classList.add('wide')
+    } else {
+        $hero_video.classList.remove('wide')
+    }
+})
+
+
+
+
+
+/*SLIDER*/
+
+const roundButton1 = document.querySelector('.roundButtonContainer1')
+const roundButton2 = document.querySelector('.roundButtonContainer2')
+const roundButton3 = document.querySelector('.roundButtonContainer3')
+const roundButton4 = document.querySelector('.roundButtonContainer4')
+// arrows
+const leftButton = document.querySelector('.left')
+const rightButton = document.querySelector('.right')
+// slider
+const slider = document.querySelector('.sliderContainer')
+const sliderImages = document.querySelectorAll('.sliderContainer img')
+const step = 960 // definit le décalage
+let pos = 0 // définit la position en cours.
+let action
+
+
+// FUNCTIONS
+
+// Mouvement slilder
+playSlider()
+
+// Round buttons
+// Le slider continu ou il était
+console.log(roundButton1)
+roundButton1.addEventListener('click', rndButton1)
+roundButton2.addEventListener('click', rndButton2)
+roundButton3.addEventListener('click', rndButton3)
+roundButton4.addEventListener('click', rndButton4)
+
+function rndButton1() {
+    pos = roundButton1.id
+    slider.style.left = -pos * step + 'px'
 }
-else
-{
-  document.write('positif')
+
+function rndButton2() {
+    pos = roundButton2.id
+    slider.style.left = -pos * step + 'px'
 }
-*/
-/*
-let number1 = parseInt(window.prompt('renseigner un nombre'))
-let number2 = parseInt(window.prompt('un dexieme nombre'))
-if(number1 * number2<0)
-{
-  document.write(positif)
+
+function rndButton3() {
+    pos = roundButton3.id
+    slider.style.left = -pos * step + 'px'
 }
-/*
-exercice 5
-*let number1 = parseInt(window.prompt('quel est le premier nombre?',  ))
-let number2 = parseInt(window.prompt('quel est le deuxiéme nombre?',  ))
-let number3 = parseInt(window.prompt('quel est le troisiéme nombre?',  ))
-if (number1 < number2 && number2 < number3)
-  document.write('1er nombre 2éme nombre 3éme nombre')
-if (number1 > number2 && number2 < number3 && number1 < number3)
-  document.write('3éme nombres 1er nombre 2éme nombre')
-if (number1 > number2 && number2 > number3)
-  document.write('3éme nombre 2éme nombre 1er nombre')
-if (number3 > number2 && number3 > number1 && number2 > number 1)
-    document.write('1er nombre 3éme nombre 2éme nombre')
-if (number1 > number3 && number3 > number2)
-    document.write('1er nombre 3éme nombre 2éme nombre')
-if (number2 > number3 && number3 > number1)
-    document.write('1er nombre 3éme nombre 2éme nombre')
-if (number3 > number2 && number2 > number1)
-    document.write('1er nombre 3éme nombre 2éme nombre')
-if (number2 > number3 && number3 > number1)
-    document.write('1er nombre 3éme nombre 2éme nombre')
-/*
-exercice 3
-let number1 = parseInt(window.prompt('quel est le premier nombre?',  ))
-let number2 = parseInt(window.prompt('quel est le second nombre?',  ))
-let result = number1 * number2
-if (number1 > 0 && number2 > 0)
-  document.write('positif')
 
-if (number1 = 0 && number2 = 0)
-    document.write('est égale a 0')
-
-if (number1 < 0 && number2 > 0)
-  document.write('negatif')
-
-if (number1 > 0 && number2 < 0)
-  document.write('negatif')
-
-if (number1 < 0 && number2 < 0)
-  document.write('negatif')
-*/
-/*
-exercice 2
-let number1 = parseInt(window.prompt('quel est le premier nombre?',  ))
-let number2 = parseInt(window.prompt('quel est le second nombre?',  ))
-let result = number1 * number2
-if (number1 > 0 && number2 > 0)
-  document.write('positif')
-
-if (number1 < 0 && number2 > 0)
-  document.write('negatif')
-
-if (number1 > 0 && number2 < 0)
-  document.write('negatif')
-
-if (number1 < 0 && number2 < 0)
-  document.write('positif')
-
-
-
-/* exercice 4
-let number = parseInt(window.prompt('quel est votre age?'))
-if( number <= 3 )
-{
-  document.write('bebe')
+function rndButton4() {
+    pos = roundButton4.id
+    slider.style.left = -pos * step + 'px'
 }
-if( number >=4 && number <=12)
-{
-  document.write('enfant')
-}
-if( number >=13 && number <=18)
-{
-  document.write('adolescent')
-}
-if( number >=19 && number <=25)
-{
-  document.write('etudiant')
-}
-if( number >=26 && number <=75)
-{
-  document.write('actif')
-}
-if( number >=76)
-{
-  document.write('retraité')
-}
-*/
 
 
+// Arrows
+leftButton.addEventListener('click', leftSlide)
+rightButton.addEventListener('click', rightSlide)
+
+function leftSlide() {
+    pos--
+    if (pos < 0) {
+        pos = sliderImages.length - 1
+    }
+    setPosition(pos)
+}
+
+function rightSlide() {
+    pos++
+    if (pos >= sliderImages.length) {
+        pos = 0
+    }
+    setPosition(pos)
+}
 
 
+slider.addEventListener('mouseover', stopSlider)
+slider.addEventListener('mouseout', playSlider)
+leftButton.addEventListener('mouseover', stopSlider)
+leftButton.addEventListener('mouseout', playSlider)
+rightButton.addEventListener('mouseover', stopSlider)
+rightButton.addEventListener('mouseout', playSlider)
 
-let number = parseInt(window.prompt('choisir un nombre entier entre 1 et 5'))
-if ( number>=2 ^ number<=5)
-document.write('gg poto')
-while (number<1  ^ number >5){
-let number = parseInt(window.prompt('réessaye'))
- ( number>=2 ^ number<=5)
-document.write('gg poto')
+function setPosition(pos) {
+    slider.style.left = -pos * step + 'px' // 960px
+}
+
+function stopSlider() {
+    clearInterval(action)
+}
+
+function playSlider() {
+    action = setInterval(
+        function () {
+            pos = (pos + 1) % sliderImages.length
+            setPosition(pos)
+        },
+        3000 // toutes les 3 secondes
+    )
 }
 
 
 
-/* exercice 2
 
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function hello(eventType, functionThatWillBeUsed){
+//     if(eventType === 'scroll'){
+//         const event = {scrollY: window.scrollY}
+//         functionThatWillBeUsed(event)
+//     }
+// }
+
+// window.hello = hello
+
+// window.hello('scroll', hi)
