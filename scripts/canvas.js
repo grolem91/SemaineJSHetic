@@ -70,8 +70,8 @@ function speed(){
       //console.log("key");
       if (e.keyCode == 38){
         vitesse = vitesse - 10; // accelerator*
-        accel.play();
-        accel.volume = 0.50;
+        accel.play();           // engine sound start
+        accel.volume = 0.90;
       }
       console.log(vitesse);
       if (vitesse <= 20){    // speed limiter
@@ -79,7 +79,7 @@ function speed(){
       }
       if (e.keyCode == 40){   // brake
         vitesse = vitesse + 10;
-        accel.pause();
+        accel.pause();        // engine sound stop
         accel.load();
       }
       if (vitesse >= 800){   // low speed limiter
@@ -368,7 +368,7 @@ function draw(i){
   ctx.lineTo(800, 450);
   ctx.fill();
 
-  ctx.fillStyle = 'rgb(28,30,96)'; //route
+  ctx.fillStyle = 'rgb(22,21,29)'; //road
   ctx.beginPath();
   ctx.moveTo(428, 300)
   ctx.lineTo(372, 300);
@@ -581,7 +581,7 @@ function draw2(i){   // second frame
   ctx.lineTo(800, 450);
   ctx.fill();
 
-  ctx.fillStyle = 'rgb(28,30,96)'; // road
+  ctx.fillStyle = 'rgb(22,21,29)'; // road
   ctx.beginPath();
   ctx.moveTo(428, 300)
   ctx.lineTo(372, 300);
@@ -797,7 +797,7 @@ function draw3(i){      // third frame
   ctx.lineTo(800, 450);
   ctx.fill();
 
-  ctx.fillStyle = 'rgb(28,30,96)'; // road
+  ctx.fillStyle = 'rgb(22,21,29)'; // road
   ctx.beginPath();
   ctx.moveTo(428, 300)
   ctx.lineTo(372, 300);
