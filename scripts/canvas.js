@@ -6,6 +6,8 @@ let background_canvas = new Image()
 background_canvas.src = "./images/background_canvas.png"
 let vitesse = 800
 let x = 275 //position dmc12
+let accel = new Audio('./images/accel.mp3');
+
 
 //traffic
 let t1 = new Image()
@@ -67,7 +69,9 @@ function speed(){
     (e)=>{
       //console.log("key");
       if (e.keyCode == 38){
-        vitesse = vitesse - 10; // accelerator
+        vitesse = vitesse - 10; // accelerator*
+        accel.play();
+        accel.volume = 0.50;
       }
       console.log(vitesse);
       if (vitesse <= 20){    // speed limiter
@@ -75,6 +79,8 @@ function speed(){
       }
       if (e.keyCode == 40){   // brake
         vitesse = vitesse + 10;
+        accel.pause();
+        accel.load();
       }
       if (vitesse >= 800){   // low speed limiter
         vitesse = vitesse - 10;
@@ -203,7 +209,7 @@ function traffic6b(){
 }
 function traffic7b(){
   ctx.drawImage(t7, 620, 400);
-  setTimeout(traffic1b(), 1000);
+  setTimeout(traffic1b(), 1500); // shift with the other lane
 }
 
 // dessine la route
