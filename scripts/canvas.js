@@ -31,8 +31,8 @@ window.onload = function(){init()};
 speed();
 direction();
 antiScroll();
-traffic1a();
-
+trafficA();
+setTimeout(trafficB, 200)
 // sprite de la DeLorean DMC-12
 // sprite of the DeLorean DMC-12
 function dmc(){
@@ -152,64 +152,148 @@ function init(){
   requestAnimationFrame(drawAll);
 }
 
+function trafficA(){  // traffic on the left lane, doesn't work
+  let callBackFunctionNameA = "traffica"
+  const drawAllA = debounce(function(){
+    // permet de permuter entre les frames
+    // allow to switch beetween the frames
+    switch (callBackFunctionNameA) {
+      case "traffica1":
+        //console.log("case 1")
+        callBackFunctionNameA = traffic1a(callBackFunctionNameA)
+        break;
+      case "traffica2":
+        //console.log("case 2")
+        callBackFunctionNameA = traffic2a(callBackFunctionNameA)
+        break;
+      case "traffica3":
+        //console.log("case 3")
+        callBackFunctionNameA = traffic3a(callBackFunctionNameA)
+        break;
+      case "traffica4":
+        //console.log("case 4")
+        callBackFunctionNameA = traffic4a(callBackFunctionNameA)
+        break;
+      case "traffica5":
+        //console.log("case 5")
+        callBackFunctionNameA = traffic5a(callBackFunctionNameA)
+        break;
+      case "traffica6":
+        //console.log("case 6")
+        callBackFunctionNameA = traffic6a(callBackFunctionNameA)
+        break;
+      case "traffica7":
+        //console.log("case 7")
+        callBackFunctionNameA = traffic7a(callBackFunctionNameA)
+        break;
+    }
+    //console.log(vitesse);
+    requestAnimationFrame(drawAllA);
+    //console.log("test")
+  }, 200);
+  requestAnimationFrame(drawAllA);
+}
+
+function trafficB(){  // traffic on the left lane, doesn't work
+  let callBackFunctionNameB = "trafficb"
+  const drawAllA = debounce(function(){
+    // permet de permuter entre les frames
+    // allow to switch beetween the frames
+    switch (callBackFunctionNameB) {
+      case "trafficb1":
+        //console.log("case 1")
+        callBackFunctionNameB = traffic1b(callBackFunctionNameB)
+        break;
+      case "trafficb2":
+        //console.log("case 2")
+        callBackFunctionNameB = traffic2b(callBackFunctionNameB)
+        break;
+      case "trafficb3":
+        //console.log("case 3")
+        callBackFunctionNameB = traffic3b(callBackFunctionNameB)
+        break;
+      case "trafficb4":
+        //console.log("case 4")
+        callBackFunctionNameB = traffic4b(callBackFunctionNameB)
+        break;
+      case "trafficb5":
+        //console.log("case 5")
+        callBackFunctionNameB = traffic5b(callBackFunctionNameB)
+        break;
+      case "trafficb6":
+        //console.log("case 6")
+        callBackFunctionNameB = traffic6b(callBackFunctionNameB)
+        break;
+      case "trafficb7":
+        //console.log("case 7")
+        callBackFunctionNameB = traffic7b(callBackFunctionNameB)
+        break;
+    }
+    //console.log(vitesse);
+    requestAnimationFrame(drawAllA);
+    //console.log("test")
+  }, 200);
+  requestAnimationFrame(drawAllA);
+}
+
 // traffic left lane
-function traffic1a(){
+function traffica1(){
   ctx.drawImage(t1, 360, 305);
-  setTimeout(traffic2a(), 100);
+  return"traffica2"
 }
-function traffic2a(){
+function traffica2(){
   ctx.drawImage(t2, 330, 330);
-  setTimeout(traffic3a(), 100);
+  return"traffica3"
 }
-function traffic3a(){
+function traffica3(){
   ctx.drawImage(t3, 300, 340);
-  setTimeout(traffic4a(), 100);
+  return"traffica4"
 }
-function traffic4a(){
+function traffica4(){
   ctx.drawImage(t4, 270, 350);
-  setTimeout(traffic5a(), 100);
+  return"traffica5"
 }
-function traffic5a(){
+function traffica5(){
   ctx.drawImage(t5, 240, 360);
-  setTimeout(traffic6a(), 100);
+  return"traffica6"
 }
-function traffic6a(){
+function traffica6(){
   ctx.drawImage(t6, 210, 380);
-  setTimeout(traffic7a(), 100);
+  return"traffica7"
 }
-function traffic7a(){
+function traffica7(){
   ctx.drawImage(t7, 180, 400);
-  setTimeout(traffic1a(), 1000);
+  return"traffica1"
 }
 
 // traffic right lane
-function traffic1b(){
+function trafficb1(){
   ctx.drawImage(t1, 440, 305);
-  setTimeout(traffic2b(), 100);
+  return"trafficb2"
 }
-function traffic2b(){
+function trafficb2(){
   ctx.drawImage(t2, 470, 330);
-  setTimeout(traffic3b(), 100);
+  return"trafficb3"
 }
-function traffic3b(){
+function trafficb3(){
   ctx.drawImage(t3, 500, 340);
-  setTimeout(traffic4b(), 100);
+  return"trafficb4"
 }
-function traffic4b(){
+function trafficb4(){
   ctx.drawImage(t4, 530, 350);
-  setTimeout(traffic5b(), 100);
+  return"trafficb5"
 }
-function traffic5b(){
+function trafficb5(){
   ctx.drawImage(t5, 560, 360);
-  setTimeout(traffic6b(), 100);
+  return"trafficb6"
 }
-function traffic6b(){
+function trafficb6(){
   ctx.drawImage(t6, 590, 380);
-  setTimeout(traffic7b(), 100);
+  return"trafficb7"
 }
-function traffic7b(){
+function trafficb7(){
   ctx.drawImage(t7, 620, 400);
-  setTimeout(traffic1b(), 1500); // shift with the other lane
+  return"trafficb1"
 }
 
 // dessine la route
